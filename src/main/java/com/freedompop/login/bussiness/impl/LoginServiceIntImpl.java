@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.freedompop.login.bussiness.ILoginServiceInt;
+import com.freedompop.login.bussiness.dto.TokenDtoInt;
 import com.freedompop.login.bussiness.dto.UserDtoInt;
 import com.freedompop.login.dao.ILoginServiceDAO;
 
@@ -16,8 +17,8 @@ public class LoginServiceIntImpl  implements ILoginServiceInt{
 	private ILoginServiceDAO loginServiceDAO;
 
 	@Override
-	public String singing(UserDtoInt user) {
-		String out=loginServiceDAO.singing(user);
+	public TokenDtoInt singing(final UserDtoInt user) {
+		TokenDtoInt out=loginServiceDAO.singing(user);
 		return out;
 	}
 	
