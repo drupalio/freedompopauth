@@ -4,12 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @SpringBootApplication
 @ComponentScan(value="com.freedompop")
-public class EjercicioApplication {
+@EnableSwagger2
+public class BootstrapApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EjercicioApplication.class, args);
+		SpringApplication.run(BootstrapApp.class, args);
 	}
 
 }
