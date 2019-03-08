@@ -1,7 +1,11 @@
 package com.freedompop.login.facade.impl;
 
+import java.util.Base64;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,10 +31,18 @@ public class LoginService implements ILoginService {
 	
 	@Override
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public void singin(UserDto user) {
+	public String singin(@RequestBody UserDto user) {
 		if(user!=null) {
 			UserDtoInt innerUser=userMapper.mapToInner(user);
-			
+			byte[] decoded = Base64.getDecoder().decode(user.getPassword().getBytes());
+			user.setPassword(new String(decoded));
+			String out=iLoginServiceInt.singing(innerUser);
+			if(StringUtils.isNotBlank(out)) {
+				return out;
+			}
+			else {
+				throw new BussinesServiceException("parametros ingresados invalidos");
+			}
 		}
 		else {
 			throw new BussinesServiceException("Payload de entrada NULO");

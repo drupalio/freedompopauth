@@ -14,7 +14,7 @@ public class UserMapper implements Mapper<UserDtoInt, UserDto>{
 		UserDtoInt inner=null;
 		if(outter!=null) {
 			inner=new UserDtoInt();
-			inner.setUserName(outter.getUserName());
+			inner.setUserName(outter.getUsername());
 			inner.setPassword(outter.getPassword());
 		}
 		return inner;
@@ -25,7 +25,7 @@ public class UserMapper implements Mapper<UserDtoInt, UserDto>{
 		UserDto outer=null;
 		if(inner!=null) {
 			outer=new UserDto();
-			outer.setUserName(inner.getUserName());
+			outer.setUsername(inner.getUserName());
 			outer.setPassword(inner.getPassword());
 		}
 		return outer;

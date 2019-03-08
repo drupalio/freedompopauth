@@ -1,5 +1,7 @@
 package com.freedompop.login.dao;
 
-public interface ILoginServiceDAO {
+import com.freedompop.login.bussiness.dto.UserDtoInt;
 
+public interface ILoginServiceDAO {
+	public String singing(UserDtoInt user);
 }

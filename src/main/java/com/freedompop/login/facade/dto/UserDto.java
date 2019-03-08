@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UserDto {
 	@Getter @Setter
-	private String userName;
+	private String username;
 	@Getter @Setter
 	private String password;
 }

@@ -1,5 +1,7 @@
 package com.freedompop.login.bussiness;
 
-public interface ILoginServiceInt {
+import com.freedompop.login.bussiness.dto.UserDtoInt;
 
+public interface ILoginServiceInt {
+	public String singing(UserDtoInt user);
 }

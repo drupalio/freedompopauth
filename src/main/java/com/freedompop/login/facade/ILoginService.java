@@ -4,6 +4,6 @@ import com.freedompop.login.facade.dto.UserDto;
 
 public interface ILoginService {
 	
-	public void singin(UserDto user);
+	public String singin(UserDto user);
 
 }
